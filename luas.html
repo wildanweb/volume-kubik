@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Luas (dalam m²)</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 400px;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        label, input {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+        }
+        input[type="number"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #008cba;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #005f73;
+        }
+        #hasil {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #008cba;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function hitungLuas() {
+            var panjang = parseFloat(document.getElementById("panjang").value) / 100;
+            var lebar = parseFloat(document.getElementById("lebar").value) / 100;
+
+            if (isNaN(panjang) || isNaN(lebar)) {
+                alert("Masukkan nilai yang valid");
+                return;
+            }
+
+            var luas = panjang * lebar;
+            document.getElementById("hasil").innerText = "Luas: " + luas.toFixed(4) + " m²";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Hitung Luas</h2>
+        <label for="panjang">Panjang (cm): </label>
+        <input type="number" id="panjang" step="any">
+
+        <label for="lebar">Lebar (cm): </label>
+        <input type="number" id="lebar" step="any">
+
+        <button onclick="hitungLuas()">Hitung Luas</button>
+
+        <p id="hasil"></p>
+
+        <a href="index.html">Hitung Volume (Panjang, Lebar & Tinggi)</a>
+    </div>
+</body>
+</html>
